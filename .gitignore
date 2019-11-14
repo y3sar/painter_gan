@@ -1,0 +1,12 @@
+__pycache__
+
+all_artist/
+images/
+
+**.swp
+**.swo
+
+**.log
+
+
+

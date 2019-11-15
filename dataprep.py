@@ -13,13 +13,16 @@ class PaintDataset(Dataset):
 
     def __getitem__(self, idx):
         label = random.choice(self.labels)
+        label_tensor = torch.tensor([0, 0])
         if label:
             img = Image.open(self.img_names[idx])
             img = transforms(img)
-            return (img, label)
+            label_tensor = label_tensor[label].add_(1)
+            return (img, label_tensor)
 
         img = self.generator(torch.randn(1, 3, 64, 64))
-        return (img, label)
+        label_tensor = label_tensor[label].add_(1)
+        return (img, label_tensor)
 
 
 

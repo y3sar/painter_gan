@@ -7,11 +7,18 @@ class Discriminator(nn.Module):
         super().__init__()
 
 
-        self.main = nn.Sequential(nn.Conv2d(3, 33, 3, 2),
-                                    nn.ReLU(True),
+        self.main = nn.Sequential(
+                                    nn.Conv2d(3, 33, 3, 2),
+                                    nn.LeakyReLU(True),
+                                    nn.BatchNormalization(33),
+
                                     nn.Conv2d(33, 130, 3, 2),
+                                    nn.LeakyReLU(True),
+                                    nn.BatchNormalization(130),
 
                                     nn.Conv2d(130, 130, 3, 2),
+                                    nn.LeakyReLU(True),
+                                    nn.BatchNormalization(130)
                                     )
 
         self.linear_block = nn.Sequential(nn.Linear(52000, 1200),
@@ -29,11 +36,12 @@ class Discriminator(nn.Module):
         x = self.linear_block(x)
         return x
 
-img = torch.randn(1, 3, 172, 172)
 
-dis = Discriminator()
+if __name__ == '__main__':
 
-print(dis.forward(img).shape)
+    img = torch.randn(1, 3, 172, 172)
+    dis = Discriminator()
+    print(dis(img).shape)
 
 
 

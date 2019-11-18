@@ -5,6 +5,7 @@ import torch
 from PIL import Image
 import os
 import random
+import torch.nn as nn
 
 class PaintDataset(Dataset):
     def __init__(self, root, transform):
@@ -31,15 +32,21 @@ train_transform = transforms.Compose([transforms.Resize((64, 64)),
                                         transforms.ToTensor(),
                                         transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5]),
                                         ])
+def weights_init(m):
+    classname = m.__class__.__name__
+    if classname.find('Conv') != -1:
+        nn.init.normal_(m.weight.data, 0.0, 0.02)
+    elif classname.find('BatchNorm') != -1:
+        nn.init.normal_(m.weight.data, 1.0, 0.02)
+        nn.init.constant_(m.bias.data, 0)
 
 
 
-image_path = 'images/Sandro_Botticelli/'
+if __name__ == '__main__':
 
-dataset = PaintDataset(image_path, train_transform)
-print(len(dataset))
+    image_path = 'images/Sandro_Botticelli/'
 
-print(dataset[0])
+    dataset = PaintDataset(image_path, train_transform)
 
 
 

@@ -26,8 +26,6 @@ image_dataset = PaintDataset(image_path, transform=train_transform)
 image_loader = DataLoader(image_dataset, batch_size=128, shuffle=True)
 
 
-mnist_dataset = datasets.MNIST('./mnist', train=True, download=True, transform=train_transform)
-mnist_loader = DataLoader(mnist_dataset, batch_size=16, shuffle=True)
 
 
 

@@ -30,7 +30,6 @@ class PaintDataset(Dataset):
 
 train_transform = transforms.Compose([transforms.Resize((64, 64)), 
                                         transforms.ToTensor(),
-                                        transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5]),
                                         ])
 def weights_init(m):
     classname = m.__class__.__name__

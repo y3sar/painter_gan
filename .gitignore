@@ -4,6 +4,7 @@ all_artist/
 images/
 fake_paintings/
 mnist/
+.ipynb_checkpoints/
 
 **.swp
 **.swo

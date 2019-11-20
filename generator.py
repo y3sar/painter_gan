@@ -29,7 +29,12 @@ class Generator(nn.Module):
                                     nn.ReLU(True),
 
                                     nn.ConvTranspose2d(64, 3, 4, 2, 1),
-                                    nn.Tanh()
+                                    nn.BatchNorm2d(3),
+                                    nn.ReLU(True),
+
+                                    nn.ConvTranspose2d(3, 3, 4, 2, 1),
+                                    nn.Tanh(),
+
                                     
 
                                     )

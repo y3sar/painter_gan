@@ -25,6 +25,10 @@ class Discriminator(nn.Module):
                                     nn.LeakyReLU(0.2, inplace=True),
 
                                     nn.Conv2d(512, 1, 4, 1, bias=False),
+
+
+                                    nn.Conv2d(1, 1, 5, 1, bias=False),
+
                                     nn.Sigmoid()
 
 
@@ -41,9 +45,9 @@ class Discriminator(nn.Module):
 
 if __name__ == '__main__':
 
-    img = torch.randn(1, 3, 64, 64)
+    img = torch.randn(1, 3, 128, 128)
     dis = Discriminator()
-    print(dis(img))
+    print(dis(img).shape)
 
 
 

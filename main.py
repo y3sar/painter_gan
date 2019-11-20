@@ -29,8 +29,8 @@ image_loader = DataLoader(image_dataset, batch_size=128, shuffle=True)
 
 
 
-optimizer_D = optim.Adam(paint_expert.parameters(), lr=0.0002, betas=(0.5, 0.999))
-optimizer_G = optim.Adam(painter.parameters(), lr=0.0002, betas=(0.5, 0.999))
+optimizer_D = optim.Adam(paint_expert.parameters(), lr=0.002, betas=(0.5, 0.999))
+optimizer_G = optim.Adam(painter.parameters(), lr=0.002, betas=(0.5, 0.999))
 criterion = nn.BCELoss()
 
 
@@ -98,7 +98,7 @@ def train(epochs, generator, discriminator, gen_optimizer, dis_optimizer, criter
         pil_image.save('fake_paintings/painting_'+str(epoch)+'.jpg') 
 
         
-train(255, painter, paint_expert, optimizer_G, optimizer_D, criterion, image_loader)
+train(4255, painter, paint_expert, optimizer_G, optimizer_D, criterion, image_loader)
         
         
             

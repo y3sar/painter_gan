@@ -28,7 +28,7 @@ class PaintDataset(Dataset):
 
 
 
-train_transform = transforms.Compose([transforms.Resize((64, 64)), 
+train_transform = transforms.Compose([transforms.Resize((128, 128)), 
                                         transforms.ToTensor(),
                                         ])
 def weights_init(m):

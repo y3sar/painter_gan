@@ -28,6 +28,13 @@ After installing all the dependencies run main.py to start training.
 python main.py
 ```
 
+### Results
+
+So far the results are not too impressive. Looks like the GAN is fond of abstract painting.
+
+<p><img src="src/paintings.gif" width=300></p>
+
+
 
 
 

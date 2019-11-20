@@ -3,7 +3,6 @@
 <p align="center"><img src="src/sandro-botticelli.png" width=300></p>
 
 This repository is aimed to making a DCGAN model that can generate paintings in the style of the great Sandro Botticelli.
-Hopefully this repo will help people who quickly want to get in the beautiful world of RL.
 
 ## Getting Started
 

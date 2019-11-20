@@ -23,7 +23,6 @@ conda install --yes --file requirements.txt
 ### Train the GAN
 
 After installing all the dependencies run main.py to start training.
-Press CTRL-C to stop training and enter the .pth file name to save the model.
 
 ```
 python main.py
